@@ -6,7 +6,7 @@ const Header = () => {
         <div className="header__container">
           <img src="/img/icons/logo.svg" alt="" className="logo" />
           <nav className="nav__menu">
-            <button><img src="/img/icons/country.svg" alt="" />Москва</button>
+            <button className="city__btn"><img src="/img/icons/country.svg" alt="" />Москва</button>
             <ul className="menu">
               <li className="menu__item"><a href="" className="menu__link">Главная</a></li>
               <li className="menu__item"><a href="" className="menu__link">Доставка</a></li>
