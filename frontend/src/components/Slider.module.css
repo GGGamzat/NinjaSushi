@@ -1,9 +1,10 @@
 .slider {
   position: relative;
+  margin: 48px auto 0 auto;
   overflow: hidden;
   width: 100%;
-  max-width: 800px;
-  margin: auto;
+  max-height: 686px;
+  max-width: 1576px;
   border-radius: 12px;
 }
 

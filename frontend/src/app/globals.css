@@ -6,6 +6,7 @@ body {
 
 .header {
     position: fixed;
+    /* position: relative; */
     top: 16px;
     width: 100%;
 }
@@ -61,13 +62,98 @@ body {
 }
 
 .interaction-btn {
-    padding: 15px;
     font-size: 16px;
     line-height: 0;
     color: #686870;
     cursor: pointer;
     border-radius: 12px;
     border: solid 1px #D2D2D7;
+}
+
+.short-btn {
+    padding: 15px;
+}
+
+.short-btn:hover {
+    padding: 16px;
+    background-color: #F5F5F5;
+    border: none;
+}
+
+.short-btn.active {
+    padding: 16px;
+    background-color: #FF6633;
+    border: none;
+}
+
+.block__interaction img {
+    transition: filter 0.3s ease;
+}
+
+.interaction-btn:hover img {
+    filter: invert(48%) sepia(93%) saturate(2162%) hue-rotate(346deg) brightness(101%) contrast(101%);
+}
+
+.interaction-btn.active img {
+    filter: brightness(0) invert(1);
+}
+
+.offer-auth {
+    position: absolute;
+    top: 91px;
+    /* width: 450px;
+    height: 200px; */
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px 0 rgba(29, 29, 31, 0.07);
+    /* z-index: 10; */
+}
+
+.offer-auth__upper {
+    display: flex;
+}
+
+.close-btn {
+    cursor: pointer;
+    background-color: #F5F5F7;
+    border-radius: 8px;
+    border: none;
+}
+
+.offer-auth__low {
+    display: flex;
+    column-gap: 12px;
+}
+
+.offer-auth__low button {
+    padding: 12px 35.5px;
+    font-size: 16px;
+    cursor: pointer;
+    color: #00CC2D;
+    background-color: #F5F5F7;
+    border-radius: 12px;
+    border: none;
+}
+
+.offer-auth__low button:hover {
+    color: #FFFFFF;
+    background-color: #00CC2D;
+}
+
+.signin-btn {}
+
+.signup-btn {}
+
+.long-btn:hover {
+    padding: 17px 25.5px;
+    background-color: #F5F5F5;
+    border: none;
+}
+
+.long-btn:active {
+    padding: 17px 25.5px;
+    background-color: #FF6633;
+    border: none;
 }
 
 .cart-btn {
@@ -80,6 +166,18 @@ body {
 .cart-btn img {
     height: 24px;
     width: 24px;
+}
+
+.cart-btn span {
+    transition: color 0.3s ease;
+}
+
+.cart-btn:hover span {
+    color: #FF6633;
+}
+
+.cart-btn:active span {
+    color: #FFFFFF;
 }
 
 .header-categories {
