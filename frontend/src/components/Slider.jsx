@@ -44,7 +44,8 @@
 "use client"; // В Next.js 13+ для компонентов на клиенте
 
 import { useState, useEffect, useRef } from "react";
-import styles from "./Slider.module.css"; // стили будем отдельным файлом
+import styles from "./Slider.module.css";
+
 
 const Slider = ({ slides, autoPlay = true, interval = 3000 }) => {
   const [current, setCurrent] = useState(0);

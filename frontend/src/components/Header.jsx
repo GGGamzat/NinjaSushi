@@ -9,13 +9,24 @@ const Header = () => {
     const handleCloseModal = () => {
       setIsModalOpen(false);
     };
+    const [openMenu, setOpenMenu] = useState(false);
 
     return (
         <header className="header">
         <div className="header__container">
-          <img src="/img/icons/logo.svg" alt="" className="logo" />
+          <div className="logo">
+            <img src="/img/icons/logo__1.svg" alt="" className="logo__1" />
+            <div className="logo_text">
+              <img src="/img/icons/logo__2.svg" alt="" className="logo__2" />
+              <img src="/img/icons/logo__3.svg" alt="" className="logo__3" />
+            </div>
+          </div>
+          {/* <img src="/img/icons/logo.svg" alt="" className="logo" /> */}
           <nav className="nav__menu">
-            <button className="city__btn"><img src="/img/icons/country.svg" alt="" />Москва</button>
+            <div className="location_btns">
+              <button className="city__btn"><img src="/img/icons/country.svg" alt="" />Москва</button>
+              <button className="lang__btn">RU</button>
+            </div>
             <ul className="menu">
               <li className="menu__item"><a href="" className="menu__link">Главная</a></li>
               <li className="menu__item"><a href="" className="menu__link">Доставка</a></li>
@@ -60,6 +71,30 @@ const Header = () => {
               <span>Корзина</span>
               <img src="/img/icons/cart.svg" alt="" />
             </button>
+
+            <button onClick={() => setOpenMenu(true)} className="menu__btn">
+              <img src="/img/icons/menu__btn.svg" alt="" />
+            </button>
+
+            {openMenu && (
+              <div className="burger-menu">
+                <div className="burger-menu__container">
+                  <div className="burger-menu__upper">
+                    <h3>Меню</h3>
+                    <button onClick={() => setOpenMenu(false)} className="menu__close-btn"><img src="/img/icons/menu__close-btn.svg" alt="" /></button>
+                  </div>
+                  <div className="burger-menu__block">
+                    <div className="burger-menu__items">
+                      <button>Главная</button>
+                      <button>Доставка</button>
+                      <button>О нас</button>
+                      <button>Новости</button>
+                    </div>
+                    <div className="burger-menu__categories"></div>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </header>
