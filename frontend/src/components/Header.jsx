@@ -59,10 +59,6 @@ const Header = () => {
 
                   <button onClick={() => setSignupOpen(true)} className="signup-btn">Регистрация</button>
 
-                  {signupOpen && (
-                    <RegisterationModal onClose={handleCloseModal} />
-                  )}
-
                 </div>
               </div>
             )}
@@ -90,7 +86,32 @@ const Header = () => {
                       <button>О нас</button>
                       <button>Новости</button>
                     </div>
-                    <div className="burger-menu__categories"></div>
+                    <div className="burger-menu__categories">
+                      <button className="categories-btn">
+                        <img src="/img/icons/icon1.svg" alt="" />
+                        <span>Суши</span>
+                      </button>
+                      <button className="categories-btn">
+                        <img src="/img/icons/icon2.svg" alt="" />
+                        <span>Роллы</span>
+                      </button>
+                      <button className="categories-btn">
+                        <img src="/img/icons/icon3.svg" alt="" />
+                        <span>Сеты</span>
+                      </button>
+                      <button className="categories-btn">
+                        <img src="/img/icons/icon4.svg" alt="" />
+                        <span>Боулы</span>
+                      </button>
+                      <button className="categories-btn">
+                        <img src="/img/icons/icon5.svg" alt="" />
+                        <span>Напитки</span>
+                      </button>
+                      <button className="categories-btn">
+                        <img src="/img/icons/icon6.svg" alt="" />
+                        <span>Снэки</span>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>

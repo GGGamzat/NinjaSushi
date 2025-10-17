@@ -1,37 +1,21 @@
 from rest_framework import serializers
-from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from .models import User
 
-class RegisterSerializer(serializers.ModelSerializer):
-    password = serializers.CharField(write_only=True)
 
+class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ("username", "email", "phone", "password")
+        fields = ('id', 'phone_number', 'email', 'username', 'date_joined')
+        read_only_fields = ('id', 'phone_number', 'date_joined')
 
-    def create(self, validated_data):
-        return User.objects.create_user(
-            username=validated_data["username"],
-            email=validated_data["email"],
-            phone=validated_data["phone"],
-            password=validated_data["password"]
-        )
+class UserProfileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ('id', 'phone_number', 'email', 'username', 'date_joined')
+        read_only_fields = ('id', 'phone_number', 'date_joined')
 
+class PhoneNumberSerializer(serializers.Serializer):
+    phone_number = serializers.CharField(max_length=15)
 
-class PhoneTokenObtainPairSerializer(TokenObtainPairSerializer):
-    @classmethod
-    def get_token(cls, user):
-        token = super().get_token(user)
-        token["username"] = user.username
-        token["phone"] = user.phone
-        return token
-
-    def validate(self, attrs):
-        # заменяем email на phone
-        phone = attrs.get("phone")
-        password = attrs.get("password")
-
-        user = User.objects.filter(phone=phone).first()
-        if user and user.check_password(password):
-            return super().validate({"phone": phone, "password": password})
-        raise serializers.ValidationError("Неверный номер телефона или пароль")
+class VerificationCodeSerializer(serializers.Serializer):
+    code = serializers.CharField(max_length=6)
